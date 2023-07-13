@@ -3,19 +3,19 @@ import express from 'express';
 import cors from 'cors';
 
 const connection = mysql2.createConnection({
-host: "localhost",
+host: "serverratan.mysql.database.azure.com",
 database:"student_result",
-user:"root",
-password:"root",
+user:"rootRatan",
+password:"isrorkO6919@@",
 
 });
 
 const app = express();
 app.use(cors());
+app.use(express.json());  
+const port = process.env.PORT || 5000;
 
-const PORT = 5000;
-
-app.listen(PORT,()=> {
+app.listen(port,()=> {
     console.log('SERVER : http://localhost:5000 ');
     connection.connect((err)=>{
         if(err) throw err;
@@ -23,7 +23,7 @@ app.listen(PORT,()=> {
     });
 });
 
-app.use(express.json());         // Add this line to parse the request body as JSON
+       // Add this line to parse the request body as JSON
 
 app.use("/all",(req, res)=> {
   const sql_query = 'select * from result'
