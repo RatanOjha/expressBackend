@@ -85,5 +85,3 @@ app.use("/getbyid/:id",(req, res)=> {
       res.send("Student record deleted successfully");
     });
   });
-  
-
